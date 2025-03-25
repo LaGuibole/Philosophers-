@@ -6,7 +6,7 @@
 #    By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 12:55:34 by guphilip          #+#    #+#              #
-#    Updated: 2025/03/10 14:24:02 by guphilip         ###   ########.fr        #
+#    Updated: 2025/03/25 14:39:31 by guphilip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ RM_LINE				= @tput cuu1 && tput el
 # FLAGS && COMPILATION
 
 CC 					=	gcc
-CFLAGS				=	-Wall -Wextra -Werror -g
+CFLAGS				=	-Wall -Wextra -Werror -g -pthread
 IFLAGS				=	-I$(INC_DIR)
 
 # DIRECTORIES
@@ -38,7 +38,7 @@ OBJ_DIR				=	obj
 
 # PHILOSOPHERS
 
-SRC_FILES			=	test
+SRC_FILES			=	
 SRCS				=	$(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC_FILES)))
 OBJS				=	$(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 
@@ -56,7 +56,8 @@ fclean:
 
 re: fclean all
 
-norminette:			@norminette $(SRC_DIR) $(INC_DIR) | grep -Ev '^Notice|OK!$$'	\
+norminette:
+					@norminette $(SRC_DIR) $(INC_DIR) | grep -Ev '^Notice|OK!$$'\
 					&& $(ECHO) -e '\033[1;31mNorminette KO!'
 					|| $(ECHO) -e '\033[1;32mNorminette OK!'
 

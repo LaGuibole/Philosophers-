@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:30:21 by guphilip          #+#    #+#             */
-/*   Updated: 2025/03/10 17:40:16 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:39:14 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #include <sys/time.h>
 #include <pthread.h>
 #include <stdbool.h>
+#include <limits.h>
 
 // DEFINES
 
@@ -45,6 +46,7 @@
 
 # define RET_OK 0
 # define RET_ERR 1
+
 // MESSAGES
 
 // ENUMS
@@ -105,9 +107,6 @@ typedef struct s_philo_ctx
 
 
 // FONCTIONS
-
-int	is_digit(char c);
-
 
 
 #endif
