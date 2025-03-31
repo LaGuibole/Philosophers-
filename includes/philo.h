@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:30:21 by guphilip          #+#    #+#             */
-/*   Updated: 2025/03/25 14:39:14 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/03/31 11:30:21 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 #include <pthread.h>
 #include <stdbool.h>
 #include <limits.h>
+#include <stdio.h>
 
 // DEFINES
 
@@ -107,6 +108,10 @@ typedef struct s_philo_ctx
 
 
 // FONCTIONS
+int	is_digit(int n);
+long	ft_atol(char *str);
+int	parse_value(char *arg, long *dest, char *err_msg);
+int	parse_args(int argc, char **argv, t_philo_ctx *ctx);
 
 
 #endif

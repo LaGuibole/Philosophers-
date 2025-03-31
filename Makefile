@@ -6,7 +6,7 @@
 #    By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 12:55:34 by guphilip          #+#    #+#              #
-#    Updated: 2025/03/25 14:39:31 by guphilip         ###   ########.fr        #
+#    Updated: 2025/03/25 14:49:31 by guphilip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ_DIR				=	obj
 
 # PHILOSOPHERS
 
-SRC_FILES			=	
+SRC_FILES			=	test utils/parse_argument
 SRCS				=	$(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC_FILES)))
 OBJS				=	$(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 
