@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:54:01 by guphilip          #+#    #+#             */
-/*   Updated: 2025/04/01 17:06:33 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:25:24 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,42 @@
 
 void	*philosopher_routine(void *arg)
 {
-	t_philo	*philo = (t_philo *)arg;
-	t_philo_ctx *ctx = (t_philo_ctx *)philo->ctx;
-	bool running;
+	t_philo		*philo;
+	t_philo_ctx	*ctx;
 
+	philo = (t_philo *)arg;
+	ctx = (t_philo_ctx *)philo->ctx;
 	if (philo->id % 2 == 0)
 		custom_sleep(ctx->timers.eat / 2);
-	while (1)
+	while (is_running(ctx))
 	{
-		pthread_mutex_lock(&ctx->mutex_is_running);
-		running = ctx->is_running;
-		pthread_mutex_unlock(&ctx->mutex_is_running);
-		if (!running)
+		eat(philo, ctx);
+		if (!is_running(ctx))
 			break ;
-		take_forks(philo);
-		eat(philo);
-		release_forks(philo);
 		sleep_philosophers(philo);
-		think(philo);
+		print_status(philo, STATE_THINKING);
 	}
 	return (NULL);
 }
 
 void	*monitor_routine(void *arg)
 {
-	t_philo_ctx *ctx = (t_philo_ctx *)arg;
+	t_philo_ctx		*ctx;
 	unsigned int	i;
-	bool running = true;
 
-	while (running)
+	ctx = (t_philo_ctx *)arg;
+	while (is_running(ctx))
 	{
 		i = 0;
-		while (i < ctx->philo_count && running)
+		while (i < ctx->philo_count)
 		{
 			if (check_philosopher_death(&ctx->philos[i]))
-			{
-				signal_death(&ctx->philos[i]);
-				running = false;
-			}
+				signal_death(&ctx->philos[i], ctx);
 			if (ctx->timers.each > 0 && check_all_eaten(ctx))
-			{
-				pthread_mutex_lock(&ctx->mutex_is_running);
-				ctx->is_running = false;
-				pthread_mutex_unlock(&ctx->mutex_is_running);
-				running = false;
-			}
+				set_running(ctx, false);
 			i++;
 		}
-		usleep(1000);
+		usleep(50);
 	}
 	return (NULL);
 }

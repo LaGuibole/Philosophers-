@@ -6,7 +6,7 @@
 #    By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 12:55:34 by guphilip          #+#    #+#              #
-#    Updated: 2025/04/01 17:01:53 by guphilip         ###   ########.fr        #
+#    Updated: 2025/04/01 18:34:00 by guphilip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ_DIR				=	obj
 
 # PHILOSOPHERS
 
-SRC_FILES			=	test utils/parse_argument errors/error philo_init/init_philo utils/clean_errors utils/clean_global utils/philo_actions utils/routine_utils utils/routine utils/utils
+SRC_FILES			=	test utils/parse_argument errors/error philo_init/init_philo utils/clean_errors utils/clean_global utils/philo_actions utils/routine_utils utils/routine utils/utils utils/philo_state philo_init/init_ctx philo_init/init_sim
 SRCS				=	$(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC_FILES)))
 OBJS				=	$(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 

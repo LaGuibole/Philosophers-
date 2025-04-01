@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:50:29 by guphilip          #+#    #+#             */
-/*   Updated: 2025/03/31 14:51:28 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:31:08 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,3 @@ int	print_error(char *msg)
 	printf("%s%s%s\n", RED, msg, RESET);
 	return (RET_ERR);
 }
-
-

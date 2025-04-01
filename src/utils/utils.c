@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:59:39 by guphilip          #+#    #+#             */
-/*   Updated: 2025/04/01 12:46:24 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:35:29 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,27 @@ long long	get_current_time(void)
 
 void	custom_sleep(long long ms)
 {
-	long long start;
-	long long current;
+	long long	start;
+	long long	current;
 
 	start = get_current_time();
 	while (1)
 	{
 		current = get_current_time();
 		if (current - start >= ms)
-			break;
+			break ;
 		usleep(100);
 	}
 }
 
 void	print_status(t_philo *philo, t_state state)
 {
-	t_philo_ctx *ctx = (t_philo_ctx *)philo->ctx;
-	long long current_time;
-	bool running;
+	t_philo_ctx	*ctx;
+	long long	current_time;
 
-	if (state != STATE_DIED)
-	{
-		pthread_mutex_lock(&ctx->mutex_is_running);
-		running = ctx->is_running;
-		pthread_mutex_unlock(&ctx->mutex_is_running);
-		if (!running)
-			return ;
-	}
+	ctx = (t_philo_ctx *)philo->ctx;
+	if (!is_running(ctx))
+		return ;
 	current_time = get_current_time() - ctx->start_time;
 	pthread_mutex_lock(&ctx->mutex_print);
 	if (state == STATE_FORK_TAKEN)
@@ -63,5 +57,3 @@ void	print_status(t_philo *philo, t_state state)
 		printf("%lld %d died\n", current_time, philo->id);
 	pthread_mutex_unlock(&ctx->mutex_print);
 }
-
-

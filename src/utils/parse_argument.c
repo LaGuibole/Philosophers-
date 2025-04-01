@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:46:01 by guphilip          #+#    #+#             */
-/*   Updated: 2025/04/01 16:52:43 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:26:21 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	parse_args(int argc, char **argv, t_philo_ctx *ctx)
 	{
 		if (parse_value(argv[PROG_EACHP_TIMER],
 				(long *)&ctx->timers.each, ARG5))
-		return (RET_ERR);
+			return (RET_ERR);
 	}
 	else
 		ctx->timers.each = INT_MAX;
