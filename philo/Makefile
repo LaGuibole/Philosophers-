@@ -27,7 +27,7 @@ RM_LINE				= @tput cuu1 && tput el
 # FLAGS && COMPILATION
 
 CC 					=	cc
-CFLAGS				=	-Wall -Wextra -Werror -g -pthread 
+CFLAGS				=	-Wall -Wextra -Werror -g -pthread
 IFLAGS				=	-I$(INC_DIR)
 
 # DIRECTORIES

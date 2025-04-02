@@ -26,7 +26,6 @@ void	*philosopher_routine(void *arg)
 		eat(philo, ctx);
 		if (!is_running(ctx))
 			break ;
-		sleep_philosophers(philo);
 		print_status(philo, STATE_THINKING);
 	}
 	return (NULL);

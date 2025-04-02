@@ -12,7 +12,7 @@
 
 #include "../includes/philo.h"
 
-static int  wait_philosophers(t_philo_ctx *ctx)
+static int	wait_philosophers(t_philo_ctx *ctx)
 {
 	unsigned int	i;
 
@@ -30,9 +30,9 @@ static int  wait_philosophers(t_philo_ctx *ctx)
 	return (RET_OK);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_philo_ctx ctx;
+	t_philo_ctx	ctx;
 
 	ctx = (t_philo_ctx){};
 	ctx.program_name = argv[0];
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	if (init_philosophers(&ctx) != RET_OK)
 		return (clean_context(&ctx), RET_ERR);
 	if (init_simulation(&ctx) != RET_OK || wait_philosophers(&ctx) != RET_OK)
-		return(clean_context(&ctx), RET_ERR);
+		return (clean_context(&ctx), RET_ERR);
 	clean_context(&ctx);
 	return (RET_OK);
 }

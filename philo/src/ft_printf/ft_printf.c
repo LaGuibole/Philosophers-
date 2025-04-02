@@ -57,7 +57,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-int fd_printf(int fd, const char *str, ...)
+int	fd_printf(int fd, const char *str, ...)
 {
 	int		i;
 	int		len;

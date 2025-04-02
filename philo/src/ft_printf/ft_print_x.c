@@ -12,11 +12,11 @@
 
 #include "../../includes/philo.h"
 
-static	int	ft_print_hexa(int fd, unsigned int n, char *car)
+static	int	ft_print_hexa(int fd, unsigned int n, char *c)
 {
 	if (n >= 16)
-		return (ft_print_hexa(fd, n / 16, car) + ft_print_hexa(fd, n % 16, car));
-	return (ft_print_c(fd, car[n]));
+		return (ft_print_hexa(fd, n / 16, c) + ft_print_hexa(fd, n % 16, c));
+	return (ft_print_c(fd, c[n]));
 }
 
 int	ft_print_x(int fd, unsigned int n, int format)

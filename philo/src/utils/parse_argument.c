@@ -52,7 +52,7 @@ long	ft_atol(char *str)
 int	parse_value(char *arg, long *dest, char *err_msg)
 {
 	*dest = ft_atol(arg);
-	if (*dest == -1)
+	if (*dest <= 0)
 	{
 		printf(RED "Error: %s " ERR_NAT_INT "\n" RESET, err_msg);
 		return (RET_ERR);

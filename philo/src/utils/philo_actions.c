@@ -36,6 +36,12 @@ void	take_forks(t_philo *philo)
 
 void	eat(t_philo *philo, t_philo_ctx *ctx)
 {
+	if (ctx->philo_count == 1)
+	{
+		print_status(philo, STATE_FORK_TAKEN);
+		custom_sleep(ctx->timers.death + 5);
+		return ;
+	}
 	take_forks(philo);
 	if (philo->r_fork != philo->l_fork)
 	{
@@ -49,6 +55,8 @@ void	eat(t_philo *philo, t_philo_ctx *ctx)
 		pthread_mutex_unlock(&philo->mutex_eaten);
 	}
 	release_forks(philo);
+	if (is_running(ctx))
+		sleep_philosophers(philo);
 }
 
 void	release_forks(t_philo *philo)

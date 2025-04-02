@@ -14,6 +14,6 @@
 
 int	print_error(char *msg)
 {
-	fd_printf(STDERR_FILENO,"%s%s%s\n", RED, msg, RESET);
+	fd_printf(STDERR_FILENO, "%s%s%s\n", RED, msg, RESET);
 	return (RET_ERR);
 }
