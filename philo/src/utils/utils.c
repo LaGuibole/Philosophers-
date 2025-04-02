@@ -46,14 +46,19 @@ void	print_status(t_philo *philo, t_state state)
 	current_time = get_current_time() - ctx->start_time;
 	pthread_mutex_lock(&ctx->mutex_print);
 	if (state == STATE_FORK_TAKEN)
-		printf("%-8lld %3d %-18s %s\n", current_time, philo->id, "has taken a fork", EM_FORK);
+		printf("%-8lld %3d %-18s %s\n", current_time,
+			philo->id, "has taken a fork", EM_FORK);
 	else if (state == STATE_EATING)
-		printf("%-8lld %3d %-18s %s\n", current_time, philo->id, "is eating", EM_EAT);
+		printf("%-8lld %3d %-18s %s\n", current_time,
+			philo->id, "is eating", EM_EAT);
 	else if (state == STATE_SLEEPING)
-		printf("%-8lld %3d %-18s %s\n", current_time, philo->id, "is sleeping", EM_SLEEP);
+		printf("%-8lld %3d %-18s %s\n", current_time,
+			philo->id, "is sleeping", EM_SLEEP);
 	else if (state == STATE_THINKING)
-		printf ("%-8lld %3d %-18s %s\n", current_time, philo->id, "is thinking", EM_THINK);
+		printf ("%-8lld %3d %-18s %s\n", current_time,
+			philo->id, "is thinking", EM_THINK);
 	else if (state == STATE_DIED)
-		printf("%-8lld %3d %-18s %s\n", current_time, philo->id, "died", EM_DIE);
+		printf("%-8lld %3d %-18s %s\n", current_time,
+			philo->id, "died", EM_DIE);
 	pthread_mutex_unlock(&ctx->mutex_print);
 }

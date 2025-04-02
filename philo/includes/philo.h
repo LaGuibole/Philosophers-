@@ -126,18 +126,14 @@ typedef struct s_philo_ctx
 
 // PRINTF FUNCTIONS
 
-int	ft_print_c(int fd, char c);
-int	ft_print_d(int fd, int n);
-int	ft_print_p(int fd, uintptr_t ptr);
-int	ft_print_s(int fd, char *s);
-int	ft_print_u(int fd, unsigned int n);
-int	ft_print_x(int fd, unsigned int n, int format);
-int	ft_printf(const char *str, ...);
-int fd_printf(int fd, const char *str, ...);
-
-
-
-
+int			ft_print_c(int fd, char c);
+int			ft_print_d(int fd, int n);
+int			ft_print_p(int fd, uintptr_t ptr);
+int			ft_print_s(int fd, char *s);
+int			ft_print_u(int fd, unsigned int n);
+int			ft_print_x(int fd, unsigned int n, int format);
+int			ft_printf(const char *str, ...);
+int			fd_printf(int fd, const char *str, ...);
 
 // FONCTIONS
 int			print_error(char *msg);
