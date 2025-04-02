@@ -1,0 +1,3 @@
+--tool=helgrind
+--leak-check=full
+--track-origins=yes

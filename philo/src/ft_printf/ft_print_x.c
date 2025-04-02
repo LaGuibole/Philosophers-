@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 14:50:29 by guphilip          #+#    #+#             */
-/*   Updated: 2025/04/02 11:08:28 by guphilip         ###   ########.fr       */
+/*   Created: 2024/11/07 15:37:51 by guphilip          #+#    #+#             */
+/*   Updated: 2025/04/02 10:54:52 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	print_error(char *msg)
+static	int	ft_print_hexa(int fd, unsigned int n, char *car)
 {
-	fd_printf(STDERR_FILENO,"%s%s%s\n", RED, msg, RESET);
-	return (RET_ERR);
+	if (n >= 16)
+		return (ft_print_hexa(fd, n / 16, car) + ft_print_hexa(fd, n % 16, car));
+	return (ft_print_c(fd, car[n]));
+}
+
+int	ft_print_x(int fd, unsigned int n, int format)
+{
+	char	*chars;
+
+	chars = L_HEX_CHARSET;
+	if (format == 'X')
+		chars = U_HEX_CHARSET;
+	return (ft_print_hexa(fd, n, chars));
 }

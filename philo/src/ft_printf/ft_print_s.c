@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 14:50:29 by guphilip          #+#    #+#             */
-/*   Updated: 2025/04/02 11:08:28 by guphilip         ###   ########.fr       */
+/*   Created: 2024/11/05 13:33:57 by guphilip          #+#    #+#             */
+/*   Updated: 2025/04/02 10:54:47 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	print_error(char *msg)
+static int	ft_printstr(int fd, char *str)
 {
-	fd_printf(STDERR_FILENO,"%s%s%s\n", RED, msg, RESET);
-	return (RET_ERR);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_print_s(int fd, char *s)
+{
+	if (s == NULL)
+		return (ft_printstr(fd, "(null)"));
+	return (ft_printstr(fd, s));
 }

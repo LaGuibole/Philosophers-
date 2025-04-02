@@ -6,7 +6,7 @@
 /*   By: guphilip <guphilip@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:30:21 by guphilip          #+#    #+#             */
-/*   Updated: 2025/04/01 18:45:30 by guphilip         ###   ########.fr       */
+/*   Updated: 2025/04/02 10:58:33 by guphilip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@
 # include <limits.h>
 # include <stdio.h>
 # include <string.h>
+# include <stdarg.h>
+# include <stdint.h>
+
+// PRINTF DEFINES
+
+# define L_HEX_CHARSET "0123456789abcdef"
+# define U_HEX_CHARSET "0123456789ABCDEF"
 
 // DEFINES
 
@@ -48,6 +55,12 @@
 
 # define RET_OK 0
 # define RET_ERR 1
+
+# define EM_EAT				"🍝"
+# define EM_THINK			"💭"
+# define EM_FORK			"🍴"
+# define EM_SLEEP			"🩲"
+# define EM_DIE				"🪦"
 
 // MESSAGES
 
@@ -110,6 +123,21 @@ typedef struct s_philo_ctx
 	t_philo			*philos;
 	pthread_mutex_t	*forks;
 }				t_philo_ctx;
+
+// PRINTF FUNCTIONS
+
+int	ft_print_c(int fd, char c);
+int	ft_print_d(int fd, int n);
+int	ft_print_p(int fd, uintptr_t ptr);
+int	ft_print_s(int fd, char *s);
+int	ft_print_u(int fd, unsigned int n);
+int	ft_print_x(int fd, unsigned int n, int format);
+int	ft_printf(const char *str, ...);
+int fd_printf(int fd, const char *str, ...);
+
+
+
+
 
 // FONCTIONS
 int			print_error(char *msg);

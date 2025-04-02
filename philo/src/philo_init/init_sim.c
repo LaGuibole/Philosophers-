@@ -14,19 +14,6 @@
 
 int	init_simulation(t_philo_ctx *ctx)
 {
-	if (init_context(ctx) != RET_OK)
-		return (RET_ERR);
-	if (init_forks(ctx) != RET_OK)
-	{
-		clean_context(ctx);
-		return (RET_ERR);
-	}
-	if (init_philosophers(ctx) != RET_OK)
-	{
-		clean_forks(ctx);
-		clean_context(ctx);
-		return (RET_ERR);
-	}
 	if (init_threads(ctx) != RET_OK)
 	{
 		clean_philosophers(ctx);
